@@ -61,13 +61,13 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LydService1.svc" />
+    <Content Include="LydLydService1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lyd.cs" />
-    <Compile Include="LydService1.svc.cs">
-      <DependentUpon>LydService1.svc</DependentUpon>
+    <Compile Include="LydLydService1.svc.cs">
+      <DependentUpon>LydLydService1.svc</DependentUpon>
     </Compile>
     <Compile Include="ILydService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +76,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\Lydmåler2 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\SemesterLyd20171122125504 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\SemesterLydExam - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

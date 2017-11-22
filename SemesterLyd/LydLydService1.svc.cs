@@ -11,40 +11,37 @@ namespace SemesterLyd
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "LydLydService1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select LydLydService1.svc or LydLydService1.svc.cs at the Solution Explorer and start debugging.
-    public class LydService1 : ILydService1
+    public class LydLydService1 : ILydService1
     {
 
         private string conStr =
-                "Server=tcp:hotelobliserver.database.windows.net,1433;" +
-                "Initial Catalog=HotelObliOpgAPI;Persist Security Info=False;" +
-                "User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;" +
-                "TrustServerCertificate=False;Connection Timeout=30;"
+                "Server=tcp:eventmserver.database.windows.net,1433;Initial Catalog=EMDatabase;Persist Security Info=False;User ID=Matias;Password=Password123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
             ;
+
+
         public IList<Lyd> GetAllLyd()
+        
         {
-            List<Lyd> temp_list = new List<Lyd>();
+            SqlConnection conn = new SqlConnection(conStr);
+            conn.Open();
 
-            using (SqlConnection conn = new SqlConnection(conStr))
+            string sql = "SELECT * FROM DBO.MALINGER";
+            SqlCommand command = new SqlCommand(sql, conn);
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<Lyd> lyde = new List<Lyd>();
+            while (reader.Read())
             {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = conn;
-                    conn.Open();
+                Lyd a = new Lyd();
 
-                    cmd.CommandText = "Select * from Lyd";
-                    SqlDataReader reader = cmd.ExecuteReader();
+                a.Id = reader.GetInt32(0);
+                a.Lydmal = reader.GetInt32(1);
+                
 
-                    while (reader.Read())
-                    {
-                        temp_list.Add(new Lyd()
-                        {
-                            Id = (int) reader[0],
-                            Lydmal = (int) reader[1],
-                        });
-                    }
-                    return temp_list;
-                }
+
+                lyde.Add(a);
             }
+            return lyde;
         }
 
         public string GetData(int value)
