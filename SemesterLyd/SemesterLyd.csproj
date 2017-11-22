@@ -65,6 +65,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lyd.cs" />
     <Compile Include="LydService1.svc.cs">
       <DependentUpon>LydService1.svc</DependentUpon>
     </Compile>

@@ -12,6 +12,13 @@ namespace SemesterLyd
     // NOTE: In order to launch WCF Test Client for testing this service, please select LydLydService1.svc or LydLydService1.svc.cs at the Solution Explorer and start debugging.
     public class LydLydService1 : ILydService1
     {
+
+        //private string conStr = 
+        public IList<Lyd> GetAllLyd()
+        {
+            throw new NotImplementedException();
+        }
+
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);

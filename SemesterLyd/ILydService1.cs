@@ -14,7 +14,10 @@ namespace SemesterLyd
     {
 
         [OperationContract]
-        string GetData(int value);
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "lyde/")]
+        IList<Lyd> GetAllLyd();
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
