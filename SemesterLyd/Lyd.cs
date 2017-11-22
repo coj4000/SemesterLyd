@@ -36,5 +36,9 @@ namespace SemesterLyd
             this.lydmal = lydmal;
         }
 
+        public override string ToString()
+        {
+            return $"{nameof(Id)}: {Id}, {nameof(Lydmal)}: {Lydmal}";
+        }
     }
 }

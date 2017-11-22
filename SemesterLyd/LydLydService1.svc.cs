@@ -25,7 +25,7 @@ namespace SemesterLyd
             SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
 
-            string sql = "SELECT * FROM DBO.MALINGER";
+            string sql = "SELECT * FROM MALING";
             SqlCommand command = new SqlCommand(sql, conn);
             SqlDataReader reader = command.ExecuteReader();
 
