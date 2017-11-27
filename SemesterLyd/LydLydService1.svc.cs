@@ -44,22 +44,25 @@ namespace SemesterLyd
             return lyde;
         }
 
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
+        
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        
+
+        public int PostLydToList(string lydmal)
         {
-            if (composite == null)
+            const string postLyde = "insert into maling (Lydmal) values (@lydmal)";
+            using (SqlConnection databaseConnection = new SqlConnection(conStr))
             {
-                throw new ArgumentNullException("composite");
+                databaseConnection.Open();
+                using (SqlCommand insertCommand = new SqlCommand(postLyde, databaseConnection))
+                {
+                    insertCommand.Parameters.AddWithValue("@lydmal", lydmal);
+
+                    int rowsAffected = insertCommand.ExecuteNonQuery();
+                    return rowsAffected;
+
+                }
             }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
         }
     }
 }

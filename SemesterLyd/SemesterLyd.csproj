@@ -76,6 +76,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\Lydmaler - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Lydmåler2 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SemesterLyd20171122125504 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SemesterLydExam - Web Deploy.pubxml" />
